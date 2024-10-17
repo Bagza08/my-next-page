@@ -25,3 +25,7 @@ body {
     text-wrap: balance;
   }
 } */
+
+.navbar {
+  background: red;
+}
