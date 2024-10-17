@@ -9,7 +9,7 @@ function LayoutApp(props: Props) {
   const { children } = props;
   const route = useRouter();
 
-  const disableNavbar = [ "/auth/login", "/auth/register" ]; 
+  const disableNavbar = ["/auth/login", "/auth/register", "/404"];
 
   return (
     <main>
