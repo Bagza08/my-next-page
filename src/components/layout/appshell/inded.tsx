@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+import { useRouter } from "next/router";
 
 type Props = {
   children: React.ReactNode;
@@ -6,10 +7,13 @@ type Props = {
 
 function LayoutApp(props: Props) {
   const { children } = props;
+  const route = useRouter();
+
+  const disableNavbar = [ "/auth/login", "/auth/register" ]; 
 
   return (
     <main>
-      <Navbar />
+      {!disableNavbar.includes(route.pathname) && <Navbar />}
       {children}
     </main>
   );

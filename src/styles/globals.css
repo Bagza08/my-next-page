@@ -27,5 +27,7 @@ body {
 } */
 
 .navbar {
-  background: red;
+  background: tomato;
+  padding: 5px;
+  color: #ffff;
 }
