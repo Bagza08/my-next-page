@@ -1,21 +1,21 @@
 /** @type {import('next').NextConfig} */
+
+const allowedDomains = [
+  "media.istockphoto.com",
+  "media.karousell.com",
+  "www.google.com",
+  "www.static-src.com",
+];
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "media.istockphoto.com", // Domain yang menyebabkan error
-        port: "",
-        pathname: "/**", // Memungkinkan path apa saja dari domain ini
-      },
-      {
-        protocol: "https",
-        hostname: "www.google.com", // Domain tempat gambar berada
-        port: "",
-        pathname: "/images/branding/**", // Path untuk gambar dari Google
-      },
-    ],
+    remotePatterns: allowedDomains.map((domain) => ({
+      protocol: "https",
+      hostname: domain,
+      port: "",
+      pathname: domain === "www.google.com" ? "/images/branding/**" : "/**",
+    })),
   },
 };
 
