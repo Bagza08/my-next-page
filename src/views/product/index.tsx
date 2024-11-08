@@ -17,11 +17,12 @@ function ProductViews(props: any) {
                 className="flex flex-col items-center justify-center border border-gray-300 rounded-lg p-3 m-3 w-[300px] h-[300px]"
               >
                 <Image
+                  onClick={() => window.open('/product/' + item?.id)}
                   src={item?.image}
                   alt={item?.name}
                   width={500}
                   height={500}
-                  className="rounded-lg w-[200px] h-[200px] object-cover"
+                  className="rounded-lg w-[200px] h-[200px] object-cover cursor-pointer"
                 />
                 <div className="ml-3 mt-3">
                   <p>{item?.name}</p>
