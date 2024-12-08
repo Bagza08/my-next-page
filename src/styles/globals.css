@@ -30,4 +30,6 @@ body {
   background: tomato;
   padding: 5px;
   color: #ffff;
+  display: flex;
+  justify-content: space-between;
 }

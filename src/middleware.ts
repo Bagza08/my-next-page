@@ -1,16 +1,12 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+import withAuth from "./middleware/WithAuth";
 
-export function middleware(req: NextRequest) {
-  const isLogin = false;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function mainMiddleware(req: NextRequest) {
+  const res = NextResponse.next();
 
-  if (isLogin) {
-    return NextResponse.next();
-  } else {
-    return NextResponse.redirect(new URL("/auth/login", req.url));
-  }
+  return res;
 }
 
-export const config = {
-  matcher: ["/product", "/about"],
-};
+export default withAuth(mainMiddleware, ["/product", "/about", "/profile"]);
